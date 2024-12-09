@@ -1,0 +1,23 @@
+{
+  "name": "diplom_tricentis",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "testapi": "npx playwright test --grep @API",
+    "allureOpen": "allure open",
+    "allureGenerate": "allure generate",
+    "codegen": "npx playwright codegen",
+    "ui_debug": "npx playwright test --ui"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^9.0.3",
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.1",
+    "allure-playwright": "^3.0.4"
+  }
+}
