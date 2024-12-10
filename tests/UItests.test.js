@@ -20,9 +20,19 @@ test.describe('UI test',() => {
         await registerFixture.shoppingCartPage.deleteItem();
         await expect(registerFixture.shoppingCartPage.emptryCartMesserge).toBeVisible();
     })
-    test('Оставить отзыв о товаре', async ({ registerFixture }) => {
+    test('Оставить отзыв o товаре', async ({ registerFixture }) => {
         await registerFixture.mainPage.books();
         await registerFixture.booksPage.goToFirstBookReviews();
         await registerFixture.reviewPage.makeAReview('I am an Title', 'I am a review Text');
+        await expect(registerFixture.reviewPage.successMesserge).toBeVisible();
+    })
+    test('Сравнить 2 товара', async ({ registerFixture }) => {
+        await registerFixture.mainPage.goToExpensiveComputerCard();
+        await registerFixture.mainPage.addToCompareList();
+        await registerFixture.mainPage.goToMainPage();
+        await registerFixture.mainPage.goToCheapComputerCard();
+        await registerFixture.mainPage.addToCompareList();
+        await expect(registerFixture.comparisonPage.firstComputerPrice).toHaveText('800.00');
+        await expect(registerFixture.comparisonPage.secondComputerPrice).toHaveText('1800.00');
     })
 })

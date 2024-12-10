@@ -9,10 +9,13 @@ export class BooksPage extends BasePage {
         this.reviewPage = this.page.getByRole('link', { name: 'review(s)' });
     }
     async buyFirstBook(){
-        await this.addToCartButton.click();
+        await allure.step("Нажать 'Купить' первую книгу", async () => {
+            await this.addToCartButton.click();})
     }
     async goToFirstBookReviews(){
-        await this.firstBookPage.click();
-        await this.reviewPage.click();
+        await allure.step("Открыть карточку первой книги из списка", async () => {
+            await this.firstBookPage.click();})
+        await allure.step("Нажать на кнопку 'Отзывы'", async () => {
+            await this.reviewPage.click();})
     }
 }

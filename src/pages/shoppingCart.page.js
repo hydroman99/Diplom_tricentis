@@ -9,7 +9,9 @@ export class ShoppingCartPage extends BasePage {
         this.emptryCartMesserge = this.page.getByText('Your Shopping Cart is empty!');
     }
     async deleteItem(){
-        await this.itemCheckBox.check();
-        await this.updateShoppingCart.click();
+        await allure.step("Выделить чекбокс товара", async () => {
+            await this.itemCheckBox.check()});
+        await allure.step("Нажать 'Обновить корзину'", async () => {
+            await this.updateShoppingCart.click()});
     }
 }

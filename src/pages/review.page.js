@@ -6,15 +6,14 @@ export class ReviewPage extends BasePage {
         this.reviewTitleField = this.page.getByLabel('Review title:');
         this.reviewTextField = this.page.getByLabel('Review text:');
         this.submitReviewButton = this.page.getByRole('button', { name: 'Submit review' });
-        this.successfulReviewed = this.page.getByText('Product review is successfully added.');
+        this.successMesserge = this.page.getByText('Product review is');
 }
    async makeAReview(reviewText = '', reviewTitle = ''){
-        await this.reviewTitleField.fill(reviewTitle);
-        await this.reviewTextField.fill(reviewText);
-        await this.submitReviewButton.click();
-        await expect(page.getByText('Product review is')).toBeVisible();
+        await allure.step("Заполнить поле 'Заголовок обзора'", async () => {
+            await this.reviewTitleField.fill(reviewTitle)});
+        await allure.step("Заполнить поле 'Текст обзора'", async () => {
+            await this.reviewTextField.fill(reviewText)});
+        await allure.step("Нажать 'Опубликовать обзор'", async () => {
+            await this.submitReviewButton.click()});
     }
 }
-
-
-////Починить ассерт
