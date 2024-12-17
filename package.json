@@ -5,6 +5,7 @@
   "scripts": {
     "test": "npx playwright test",
     "testapi": "npx playwright test --grep @API",
+    "testui": "npx playwright test --grep @UI",
     "allureOpen": "allure open",
     "allureGenerate": "allure generate",
     "codegen": "npx playwright codegen",
@@ -18,6 +19,7 @@
     "@faker-js/faker": "^9.0.3",
     "@playwright/test": "^1.49.0",
     "@types/node": "^22.10.1",
-    "allure-playwright": "^3.0.4"
+    "allure-playwright": "^3.0.4",
+    "axios": "^1.7.9"
   }
 }

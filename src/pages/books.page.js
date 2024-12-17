@@ -1,4 +1,5 @@
 import { BasePage } from './base.page'
+import { allure } from "allure-playwright"
 
 export class BooksPage extends BasePage {
     constructor(page) {

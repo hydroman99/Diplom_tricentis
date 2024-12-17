@@ -2,17 +2,17 @@ import { expect } from '@playwright/test';
 import { test } from '../src/helpers/fixtures/fixture'
 
 test.describe('UI test',() => {
-    test('Пользователь успешно залогинился', async ({ registerFixture }) => {
+    test('Пользователь успешно залогинился @UI', async ({ registerFixture }) => {
         await expect(registerFixture.mainPage.logoutButton).toBeVisible()
     })
-    test('Добавление товар в корзину', async ({ registerFixture }) => {
+    test('Добавление товар в корзину @UI', async ({ registerFixture }) => {
         await registerFixture.mainPage.books();
         await registerFixture.booksPage.buyFirstBook();
         await expect(registerFixture.booksPage.notification).toBeVisible();
         await registerFixture.mainPage.goToCart();
         await expect(registerFixture.shoppingCartPage.firstItem).toBeVisible();
     })
-    test('Удаление товара из корзины', async ({ registerFixture }) => {
+    test('Удаление товара из корзины @UI', async ({ registerFixture }) => {
         await registerFixture.mainPage.books();
         await registerFixture.booksPage.buyFirstBook();
         await expect(registerFixture.booksPage.notification).toBeVisible();
@@ -20,13 +20,13 @@ test.describe('UI test',() => {
         await registerFixture.shoppingCartPage.deleteItem();
         await expect(registerFixture.shoppingCartPage.emptryCartMesserge).toBeVisible();
     })
-    test('Оставить отзыв o товаре', async ({ registerFixture }) => {
+    test('Оставить отзыв o товаре @UI', async ({ registerFixture }) => {
         await registerFixture.mainPage.books();
         await registerFixture.booksPage.goToFirstBookReviews();
         await registerFixture.reviewPage.makeAReview('I am an Title', 'I am a review Text');
         await expect(registerFixture.reviewPage.successMesserge).toBeVisible();
     })
-    test('Сравнить 2 товара', async ({ registerFixture }) => {
+    test('Сравнить 2 товара @UI', async ({ registerFixture }) => {
         await registerFixture.mainPage.goToExpensiveComputerCard();
         await registerFixture.mainPage.addToCompareList();
         await registerFixture.mainPage.goToMainPage();
